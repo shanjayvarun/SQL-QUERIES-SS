@@ -1,0 +1,228 @@
+<Html>
+  <p class="main"> GUVI TASK - SQL QUERIES  😎 </p>
+  <footer>
+<body class="bg">
+  <div  class="letters">
+
+    SQL L1
+    <p>
+      -SELECT title
+      FROM movies;<br>
+      -SELECT director
+      FROM movies;<br>
+      -SELECT director , title
+      FROM movies;<br>
+      -SELECT year , title
+      FROM movies;<br>
+      -SELECT *
+      FROM movies;<br>
+    </p>
+  
+
+  SQL L2
+  <p>
+    -SELECT *
+    FROM movies
+    where id =6;<br>
+    -SELECT *
+    FROM movies
+    where year
+    between 2000 and 2010;<br>
+    -SELECT *
+    FROM movies
+    where year not
+    between 2000 and 2010;<br>
+    -SELECT *
+    FROM movies
+    where id in (1,2,3,4,5);<br>
+  </p>
+  SQL L3
+  <p>
+    -SELECT *
+    FROM movies
+    where title like "%toy%";<br>
+    -SELECT *
+    FROM movies
+    where director like "%john lasseter%";<br>
+    -SELECT *
+    FROM movies
+    where director not like "%john lasseter%";<br>
+    -SELECT *
+    FROM movies
+    where title like "%wall%";<br>
+  </p>
+  SQL L4
+  <p>
+    -select distinct director
+    from movies
+    order by director;<br>
+    -select *
+    from movies
+    order by year desc
+    limit 4;<br>
+    -select *
+    from movies
+    order by title
+    limit 5;<br>
+    -select *
+    from movies
+    order by title
+    limit 5,5;<br>
+  </p>
+  SQL L5
+  <p>
+    -SELECT *
+    FROM north_american_cities
+    where country like "%canada%";<br>
+    -SELECT *
+    FROM north_american_cities
+    where country like "%united states%"
+    order by latitude desc;<br>
+    -SELECT *
+    FROM north_american_cities
+    where longitude < -87.629798 order by longitude;<br>
+      -SELECT *
+      FROM north_american_cities
+      where country = "Mexico"
+      order by population desc
+      limit 2;<br>
+      -SELECT *
+      FROM north_american_cities
+      where country ="United States"
+      order by population desc
+      limit 2,2;<br>
+  </p>
+  SQL L6
+  <p>
+    -SELECT *
+    FROM movies
+    inner join boxoffice
+    on movies.id = boxoffice.movie_id;<br>
+    -SELECT *
+    FROM movies
+    inner join boxoffice
+    on movies.id = boxoffice.movie_id
+    where international_sales > domestic_sales;<br>
+    -SELECT *
+    FROM movies
+    inner join boxoffice
+    on movies.id = boxoffice.movie_id
+    order by rating desc;<br>
+  </p>
+  SQL L7
+  <p>
+    -SELECT distinct building
+    FROM employees;<br>
+    -SELECT *
+    FROM buildings;<br>
+    -SELECT Distinct Building_name, Role
+    FROM Buildings
+    left join employees
+    On Buildings.building_name = employees.building;<br>
+  </p>
+  SQL L8
+  <p>
+    -SELECT name,role
+    FROM employees
+    where building is null;<br>
+    -SELECT *
+    FROM buildings
+    left join employees
+    on buildings.building_name=employees.building
+    where building is null;<br>
+  </p>
+  SQL L9
+  <p>
+    -SELECT title,(Domestic_sales+International_sales)/1000000 as combined_sales
+    FROM movies
+    left join boxoffice
+    on id=movie_id;<br>
+    -SELECT title,(rating)*10 as percent
+    FROM movies
+    left join boxoffice
+    on id=movie_id;<br>
+    -SELECT title
+    FROM movies
+    where (year)%2=0;<br>
+  </p>
+  SQL L10
+  <p>
+    -SELECT name,max(Years_employed)
+    FROM employees;<br>
+    -SELECT role,avg(years_employed)
+    FROM employees
+    group by role;<br>
+    -SELECT total(years_employed),building
+    FROM employees
+    group by building;<br>
+  </p>
+  SQL L11
+  <p>
+    -SELECT role,count(*) as no_of_artists
+    FROM employees
+    where role = "Artist";<br>
+    -SELECT role,sum(years_employed)
+    FROM employees
+    where role = "Engineer";<br>
+  </p>
+  SQL L12
+  <p>
+    -SELECT distinct director,count(*)
+    FROM movies
+    group by director;<br>
+    -SELECT distinct director,total(Domestic_sales+International_sales) as total_sales
+    FROM boxoffice
+    left join movies
+    on movie_id = id
+    group by director;<br>
+  </p>
+  SQL L13
+  <p>
+    -INSERT INTO Movies(Id,Title,Director,Year,Length_minutes)
+    VALUES (4, "Toy Story 4", "John Lasseter", 2017, 123);<br>
+    -INSERT into Boxoffice (Movie_id,Rating,Domestic_sales,International_sales)
+    values (11,8.7, 340000000,270000000);<br>
+  </p>
+  SQL L14
+  <p>
+    -UPDATE movies SET director = "John Lasseter"
+    where id =2;<br>
+    -UPDATE movies SET year = 1999
+    where id =3;<br>
+    -UPDATE movies SET director = "Lee Unkrich",title = "Toy Story 3"
+    where id =11;<br>
+  </p>
+  SQL L15
+  <p>
+    -delete from movies
+    where year < 2005;<br>
+      -delete from movies
+      where director = "Andrew Stanton";<br>
+  </p>
+  SQL L16
+  <p>
+    -CREATE TABLE Database (
+    Name TEXT,
+    Version float,
+    Download_count INTEGER);<br>
+  </p>
+  SQL L17
+  </p>
+  -ALTER TABLE movies
+  ADD Aspect_ratio Float
+  DEFAULT null;<br>
+  -Alter table movies
+  add language
+  text default "english";<br>
+  </p>
+  SQL L18
+  <p>
+    -drop table movies;<br>
+    -drop table boxoffice;<br>
+  </p>
+  </div>
+  </footer>
+
+</body>
+
+</html>
